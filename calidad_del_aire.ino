@@ -1,13 +1,13 @@
 // Version 1.0.0 - Development
 
-#include "DHT.h"
+//#include "DHT.h"
 
-DHT dht;
+//DHT dht;
 
 void setup()
 {
   Serial.begin(9600);
-  dht.setup(4);
+  // dht.setup(4);
   pinMode(5, INPUT);
   pinMode(6, INPUT);
   pinMode(7, INPUT);
@@ -24,7 +24,7 @@ void loop()
   // Ritmo Refresco;
   delay(1000);
 
-  // DHT22 y AM2302
+  /* / DHT22 y AM2302
   float humedad = dht.getHumidity();
   float temperatura = dht.getTemperature();
  
@@ -88,7 +88,7 @@ void loop()
 
   if(digitalRead(7) == 0){
     mq8_umbral = "true";
-  }
+  } */
 
   // MQ-135
   int mq135_adc = analogRead(A5);
@@ -122,7 +122,7 @@ void loop()
     jsonSerial += "\"amoniaco\": {";
     jsonSerial += "\"valido\": false,";
     jsonSerial += "\"error\": \"Valor númerico no valido\"";
-    jsonSerial += "},";
+    jsonSerial += "}";
 
   } else {
 
@@ -178,11 +178,11 @@ void loop()
     jsonSerial += ",\"valorAnalogico\":";
     jsonSerial += mq135_adc;
     jsonSerial += ",\"sensor\": \"MQ-135\"";
-    jsonSerial += "},"; 
+    jsonSerial += "}"; 
 
   }
 
-  // MQ-8
+  /*/ MQ-8
   if (isnan(hidrogeno)) {
 
     jsonSerial += "\"hidrogeno\": {";
@@ -391,7 +391,7 @@ void loop()
     jsonSerial += "\"unidad\": \"°C\"";    
     jsonSerial += "}";    
       
-  }
+  }*/
 
   jsonSerial += "}";
 
