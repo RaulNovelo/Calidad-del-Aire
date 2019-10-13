@@ -12,4 +12,4 @@ while True:
     if (ser.in_waiting > 0):
         line = ser.readline()
         print(line)
-        sio.emit('everybody', line)
+        sio.emit('sensor', line)
